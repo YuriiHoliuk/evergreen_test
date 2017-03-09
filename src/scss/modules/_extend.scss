@@ -1,0 +1,32 @@
+%pseudo {
+    position: relative;
+    &::before {
+        position: absolute;
+        display: block;
+        content: '';
+    }
+    &::after {
+        position: absolute;
+        display: block;
+        content: '';
+    }
+}
+
+%ham {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+%vam {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+%cam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
