@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     mqpacker = require("css-mqpacker"),
     rigger = require('gulp-rigger'),
+    replace = require('gulp-replace-task'),
     htmlmin = require('gulp-htmlmin');
 
 
@@ -79,12 +80,18 @@ gulp.task('buildImg', function() {
 
 gulp.task('buildHtml', function() {
     return gulp.src('src/*.html')
+        .pipe(replace({
+            patterns: [{
+                match: 'libs/',
+                replacement: ''
+            }]
+        }))
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('docs'))
 })
 
 gulp.task('buildCss', ['css-min'], function() {
-    return gulp.src(['src/css/*.min.css'])
+    return gulp.src(['src/css/*.min.css', 'src/libs/css/*.css'])
         .pipe(gulp.dest('docs/css'))
 })
 
@@ -94,7 +101,7 @@ gulp.task('buildFonts', function() {
 })
 
 gulp.task('buildJs', ['scripts'], function() {
-    return gulp.src(['src/js/*.min.js'])
+    return gulp.src(['src/js/*.min.js', 'src/libs/js/*.js'])
         .pipe(gulp.dest('docs/js'))
 })
 
