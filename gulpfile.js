@@ -77,7 +77,7 @@ gulp.task('buildImg', function() {
         .pipe(gulp.dest('docs/img'));
 });
 
-gulp.task('buildHtml', ['html'], function() {
+gulp.task('buildHtml', function() {
     return gulp.src('src/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('docs'))
