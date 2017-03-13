@@ -1,0 +1,40 @@
+.content {
+    position: relative;
+    @extend %clearfix;
+    z-index: 2;
+    &__bg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        @extend %clearfix;
+        &_left {
+            float: left;
+            background-color: $bg-color;
+            width: 52%;
+            height: 100%;
+        }
+        &_right {
+            @extend %clearfix;
+            float: left;
+            width: 48%;
+            height: 100%;
+            background-image: url('../img/wheat-bg.jpg');
+            background-size: cover;
+        }
+    }
+    &__left-col {
+        float: left;
+        width: 52%;
+        @extend %clearfix;
+    }
+    &__right-col {
+        float: left;
+        position: relative;
+        border-top: 1px solid transparent;
+        width: 48%;
+        @extend %clearfix;
+    }
+}

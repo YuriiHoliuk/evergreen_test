@@ -1,0 +1,64 @@
+.profit-calc {
+    max-width: 317px;
+    background-image: url('../img/bg_tmpl.jpg');
+    background-repeat: repeat;
+    border: 2px dotted $dotted-bg-color;
+    outline: 12px solid $second-bg-color;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 82px;
+    transform: translateY(-170px);
+    &__header {
+        text-align: center;
+        @extend %pseudo;
+        &::after {
+            bottom: 0;
+            @extend %ham;
+            width: 170px;
+            border-bottom: 2px solid $bd-color;
+        }
+        padding-bottom: 20px;
+        margin-bottom: 15px;
+    }
+    &__footer {
+        text-align: center;
+        @extend %pseudo;
+        &::after {
+            top: 0;
+            @extend %ham;
+            width: 170px;
+            border-bottom: 2px solid $bd-color;
+        }
+        padding-top: 10px;
+    }
+    &__headline {
+        font-weight: 700;
+        font-stretch: condensed;
+        font-size: 3.6rem;
+        text-transform: uppercase;
+        color: $main-text-color;
+    }
+    &__tagline {
+        letter-spacing: 0.15px;
+        text-transform: uppercase;
+        color: $main-text-color;
+        &_indented {
+            font-weight: 700;
+        }
+    }
+    &__result {
+        font-size: 4.7rem;
+        text-transform: uppercase;
+        color: $calc-indent-color;
+    }
+    &__result-text {
+        font-weight: 300;
+        letter-spacing: 0.15px;
+        text-transform: uppercase;
+        color: $calc-indent-color;
+    }
+    &__currency {
+        font-weight: 300;
+        color: $main-text-color;
+    }
+}

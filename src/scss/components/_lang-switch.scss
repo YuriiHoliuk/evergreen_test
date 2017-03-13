@@ -1,0 +1,22 @@
+.lang-switch {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    background-image: url('../img/lang-arrow.png');
+    background-repeat: no-repeat;
+    background-position: 45px 50%;
+    background-color: transparent;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    padding: 10px 15px;
+    padding-right: 35px;
+    &:focus {
+        outline: none;
+    }
+    &__option {
+        text-transform: uppercase;
+        background: transparent;
+        color: $main-text-color;
+    }
+}

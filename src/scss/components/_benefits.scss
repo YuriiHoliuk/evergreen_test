@@ -1,0 +1,11 @@
+.benefits {
+    list-style: none;
+    padding: 0;
+    padding-left: 135px;
+    margin-left: 90px;
+    margin-bottom: 55px;
+    &__bg {
+        position: absolute;
+        top: -60px;
+    }
+}

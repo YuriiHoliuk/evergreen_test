@@ -1,0 +1,6 @@
+.document {
+    @include tablet-landscape-down {
+        font-size: 10px / 16px * 100%;
+    }
+    font-size: 10 / 1200 * 100vw;
+}

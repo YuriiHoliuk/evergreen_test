@@ -1,0 +1,19 @@
+.option-form {
+    color: $main-text-color;
+    &__input,
+    &__select {
+        font-weight: 300;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        border: 2px solid $bd-color;
+        border-radius: 2px;
+    }
+    &__option {
+        font-weight: 300;
+        color: $main-text-color;
+    }
+    &__label {
+        font-weight: 300;
+    }
+}

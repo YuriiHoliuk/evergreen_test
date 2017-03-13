@@ -1,0 +1,26 @@
+.main-nav {
+    background-color: $bg-color;
+    padding: 17px 13px 8px 38px;
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+    &__item {
+        display: inline-block;
+        &:not(:last-child) {
+            padding-right: 2.8rem;
+        }
+        & span {
+            font-size: .5em;
+            padding-left: 3px;
+        }
+    }
+    &__link {
+        font-stretch: condensed;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #6D6E71;
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,0 +1,22 @@
+.benefit {
+    margin-bottom: 5px;
+    background-image: url('../img/star.svg');
+    background-size: 35px 35px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 60px;
+    &__headline {
+        font-stretch: condensed;
+        font-weight: 700;
+        font-size: 2.5rem;
+        color: $benefits-text-color;
+    }
+    &__description {
+        font-size: 1.1rem;
+        color: $second-text-color;
+    }
+    &__rate {
+        font-size: 2.5rem;
+        color: $benefits-indent-color;
+    }
+}

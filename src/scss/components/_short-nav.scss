@@ -1,0 +1,16 @@
+.short-nav {
+    list-style: none;
+    padding: 0;
+    &__item {
+        display: inline-block;
+        &:not(:last-child) {
+            padding-right: 44px;
+        }
+    }
+    &__link {
+        font-weight: 300;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
