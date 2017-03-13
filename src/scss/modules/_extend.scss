@@ -30,3 +30,155 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+%clearfix {
+    &::after {
+        display: block;
+        visibility: hidden;
+        content: "";
+        clear: both;
+    }
+}
+
+//tmp
+%header-panel__basket-link-gradient {
+    background: linear-gradient(to bottom, rgb(117, 91, 30), rgb(82, 168, 40));
+}
+
+%header-panel__basket-link_text {
+    font-family: $main-font;
+    font-weight: bold;
+    font-stretch: condensed;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+%logo {
+    font-family: $main-font;
+    font-weight: 700;
+    font-stretch: condensed;
+    font-weight: bold;
+    font-size: 50px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+%short-nav__link {
+    font-family: $main-font;
+    font-weight: 300;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+%lang-swith {
+    font-family: MetaPro Book;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+%main-nav__link {
+    font-family: $main-font;
+    font-stretch: condensed;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #6D6E71;
+}
+
+%tagline__text {
+    font-family: $main-font;
+    font-weight: bold;
+    font-stretch: condensed;
+    font-size: 60px;
+    color: #FFFFFF;
+}
+
+%calc__headline {
+    font-family: $main-font;
+    font-weight: bold;
+    font-stretch: condensed;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #25383F;
+}
+
+%calc__label {
+    font-family: $main-font;
+    font-weight: 300;
+    font-size: 14px;
+    color: #25383F;
+}
+
+%calc__placeholder {
+    font-family: $main-font;
+    font-weight: normal; //400
+    font-size: 14px;
+    color: #A7A9AC;
+}
+
+%calc__end {
+    font-family: $main-font;
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #D26440;
+}
+
+%calc-result {
+    font-family: Myriad Pro;
+    font-size: 47px;
+    text-transform: uppercase;
+    color: #D26441;
+}
+
+%calc__currency {
+    font-family: $main-font;
+    font-size: 14px;
+    font-weight: 300;
+    color: #25383F;
+}
+
+%benefit__head {
+    font-family: $main-font;
+    font-stretch: condensed;
+    font-weight: bold;
+    font-size: 25px;
+    color: #4D4545;
+}
+
+%benefit__second {
+    font-family: $main-font;
+    font-size: 11px;
+    color: #A7A9AC;
+}
+
+%benefit__rate {
+    font-family: $main-font;
+    font-size: 25px;
+    color: #C49A6C;
+}
+
+%add__head {
+    font-family: $main-font;
+    font-weight: bold;
+    font-size: 42px;
+    font-stretch: condensed;
+    color: #25383F;
+}
+
+%add__second {
+    font-family: $main-font;
+    font-size: 14px;
+    font-weight: 300;
+    color: #000000;
+}
+
+%add__button {
+    font-family: HelveticaNeue;
+    font-weight: bold;
+    font-stretch: condensed;
+    font-size: 23px;
+    color: #000000;
+}

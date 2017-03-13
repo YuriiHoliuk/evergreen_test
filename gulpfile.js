@@ -13,7 +13,7 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     mqpacker = require("css-mqpacker"),
     rigger = require('gulp-rigger'),
-    replace = require('gulp-replace-task'),
+    replace = require('gulp-string-replace'),
     htmlmin = require('gulp-htmlmin');
 
 
@@ -43,18 +43,21 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('scripts', function() {
-    return gulp.src(['src/js/*.js'])
+    return gulp.src(['src/js/*.js', '!src/js/*.min.js'])
         .pipe(concat('main.min.js'))
         .pipe(uglify())
         .pipe(gulp.dest('src/js'));
 });
 
 gulp.task('css-min', ['sass'], function() {
-    return gulp.src(['src/css/*.css', '!src/css/*min.css'])
-        .pipe(cssnano())
-        .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('src/css'))
-        .pipe(browserSync.reload({ stream: true }));
+    setTimeout(function() {
+        return gulp.src(['src/css/*.css', '!src/css/*min.css'])
+            .pipe(cssnano())
+            .pipe(rename({ suffix: '.min' }))
+            .pipe(gulp.dest('src/css'))
+            .pipe(browserSync.reload({ stream: true }));
+    }, 200)
+
 });
 
 gulp.task('watch', ['browser-sync', 'css-min', 'scripts'], function() {
@@ -80,14 +83,9 @@ gulp.task('buildImg', function() {
 
 gulp.task('buildHtml', function() {
     return gulp.src('src/*.html')
-        .pipe(replace({
-            patterns: [{
-                match: 'libs/',
-                replacement: ''
-            }]
-        }))
+        .pipe(replace('libs/', ''))
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(gulp.dest('docs'))
+        .pipe(gulp.dest('docs'));
 })
 
 gulp.task('buildCss', ['css-min'], function() {
