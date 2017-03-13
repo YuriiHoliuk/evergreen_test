@@ -4,8 +4,18 @@
     padding-left: 135px;
     margin-left: 90px;
     margin-bottom: 55px;
+    // border: 1px solid #f00; 
+    @include tablet-portrait-down {
+        padding-left: 0;
+        margin-left: 0;
+        display: inline-block;
+        margin: 0 auto;
+    }
     &__bg {
         position: absolute;
         top: -60px;
+        @include tablet-portrait-down {
+            display: none;
+        }
     }
 }

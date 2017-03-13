@@ -1,17 +1,29 @@
 .tagline {
     padding-bottom: 12px;
-    // border-bottom: 1px solid transparent;
+    border-bottom: 1px solid transparent;
     margin-left: 90px;
     &__text {
         font-weight: 700;
         font-stretch: condensed;
         font-size: 6rem;
         color: #fff;
+        @include tablet-landscape-down {
+            font-size: 6rem * 0.77;
+        }
         & p:nth-child(2) {
             text-indent: 112px;
+            @include tablet-landscape-down {
+                text-indent: 112px * 0.77;
+            }
         }
         & p:nth-child(3) {
             text-indent: 224px;
+            @include tablet-landscape-down {
+                text-indent: 224px * 0.77;
+            }
         }
+    }
+    @include tablet-landscape-down {
+        margin-left: 45px;
     }
 }

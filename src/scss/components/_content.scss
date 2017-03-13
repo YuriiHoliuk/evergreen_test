@@ -2,6 +2,9 @@
     position: relative;
     @extend %clearfix;
     z-index: 2;
+    @include tablet-portrait-down {
+        background-color: $bg-color;
+    }
     &__bg {
         position: absolute;
         top: 0;
@@ -10,6 +13,9 @@
         right: 0;
         z-index: -1;
         @extend %clearfix;
+        @include tablet-portrait-down {
+            display: none;
+        }
         &_left {
             float: left;
             background-color: $bg-color;
@@ -29,6 +35,13 @@
         float: left;
         width: 52%;
         @extend %clearfix;
+        // border: 1px solid #0f0; 
+        @include tablet-portrait-down {
+            float: none;
+            // width: 100%;  
+            display: inline-block;
+            margin: 0 auto;
+        }
     }
     &__right-col {
         float: left;
@@ -36,5 +49,9 @@
         border-top: 1px solid transparent;
         width: 48%;
         @extend %clearfix;
+        @include tablet-portrait-down {
+            float: none;
+            width: 100%;
+        }
     }
 }

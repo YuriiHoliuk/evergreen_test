@@ -4,10 +4,16 @@
     background-repeat: repeat;
     border: 2px dotted $dotted-bg-color;
     outline: 12px solid $second-bg-color;
+    margin: 12px;
     padding-left: 20px;
     padding-right: 20px;
-    margin-left: 82px;
+    margin-left: 82px / 1200px * 100vw;
     transform: translateY(-170px);
+    @include tablet-portrait-down {
+        margin-left: 12px;
+        transform: none;
+        max-width: none;
+    }
     &__header {
         text-align: center;
         @extend %pseudo;
