@@ -20,7 +20,7 @@ function headerInit() {
 
     function rebuildHeader() {
         if (state !== getState()) {
-            if (getState() === 'desktop') {
+            if (getState() === 'desktop' && $('mobile-nav__toggle').hasClass('open')) {
                 toggleMobileNav();
             }
             clearHeader();
