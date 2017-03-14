@@ -3,6 +3,18 @@ $(function() {
     headerInit();
 });
 
+function bgInit() {
+    $('.promo').backstretch([
+        "http://lorempixel.com/1366/488/nature",
+        "http://lorempixel.com/1366/488/technics",
+        "http://lorempixel.com/1366/488/sports",
+        "../img/promo_bg.jpg"
+    ], {
+        duration: 5000,
+        fade: 500
+    });
+}
+
 function headerInit() {
     var breakpoint = 900,
         state,
@@ -17,6 +29,7 @@ function headerInit() {
     buildHeader(getState());
 
     $(window).resize(rebuildHeader);
+
 
     function rebuildHeader() {
         if (state !== getState()) {
@@ -88,17 +101,5 @@ function headerInit() {
             $('.mobile-nav').addClass('active');
         });
     }
-}
 
-
-function bgInit() {
-    $('.promo').backstretch([
-        "http://lorempixel.com/1366/488/nature",
-        "http://lorempixel.com/1366/488/technics",
-        "http://lorempixel.com/1366/488/sports",
-        "../img/promo_bg.jpg"
-    ], {
-        duration: 5000,
-        fade: 500
-    });
 }

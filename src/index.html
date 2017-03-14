@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="document">
+<html lang="en" class="document" data-ng-app="evergreen">
 
 <head>
     <meta charset="UTF-8">
@@ -42,10 +42,10 @@
             </button>
 
             <ul class="short-nav">
-                <li class="short-nav__item"><a href="" class="short-nav__link">Оплата и доставка</a></li>
-                <li class="short-nav__item"><a href="" class="short-nav__link">Новости</a></li>
-                <li class="short-nav__item"><a href="" class="short-nav__link">Справочник</a></li>
-                <li class="short-nav__item"><a href="" class="short-nav__link">Сертификаты</a></li>
+                <li class="short-nav__item"><a href="#" class="short-nav__link">Оплата и доставка</a></li>
+                <li class="short-nav__item"><a href="#" class="short-nav__link">Новости</a></li>
+                <li class="short-nav__item"><a href="#" class="short-nav__link">Справочник</a></li>
+                <li class="short-nav__item"><a href="#" class="short-nav__link">Сертификаты</a></li>
             </ul>
 
             <select class="lang-switch">
@@ -57,27 +57,27 @@
                 <nav class="main-nav">
                     <ul class="main-nav__list">
                         <li class="main-nav__item">
-                            <a href="" class="main-nav__link">Нагро-удобрение <span>&#9654</span></a>
+                            <a href="#" class="main-nav__link">Нагро-удобрение <span>&#9654</span></a>
                         </li>
                         <li class="main-nav__item">
-                            <a href="" class="main-nav__link">БиоДизель <span>&#9654</span></a>
+                            <a href="#" class="main-nav__link">БиоДизель <span>&#9654</span></a>
                         </li>
                         <li class="main-nav__item">
-                            <a href="" class="main-nav__link">Силко <span>&#9654</span></a>
+                            <a href="#" class="main-nav__link">Силко <span>&#9654</span></a>
                         </li>
                         <li class="main-nav__item">
-                            <a href="" class="main-nav__link">Интернет-магазин <span>&#9654</span></a>
+                            <a href="#" class="main-nav__link">Интернет-магазин <span>&#9654</span></a>
                         </li>
                         <li class="main-nav__item">
-                            <a href="" class="main-nav__link">Вопросы-ответы <span>&#9654</span></a>
+                            <a href="#" class="main-nav__link">Вопросы-ответы <span>&#9654</span></a>
                         </li>
                         <li class="main-nav__item">
-                            <a href="" class="main-nav__link">Контакты <span>&#9654</span></a>
+                            <a href="#" class="main-nav__link">Контакты <span>&#9654</span></a>
                         </li>
                     </ul>
                 </nav>
 
-                <button href="" class="basket-btn">
+                <button href="#" class="basket-btn">
                     <svg class="basket-btn__icon" viewBox="0 0 20.83 20.83">
                         <path class="cart view" d="M15.11,10.42a.37.37,0,0,1-.33.37l-6,.7a1.88,1.88,0,0,1,.07.4.86.86,0,0,1-.14.37H14A.37.37,0,1,1,14,13H8.17a.37.37,0,0,1-.37-.37,2.94,2.94,0,0,1,.35-.78l-1-4.7H6A.37.37,0,1,1,6,6.4H7.44c.38,0,.39.46.45.73h6.85a.37.37,0,0,1,.37.37Zm-6.57,4a.73.73,0,1,1,.73-.73A.74.74,0,0,1,8.54,14.43Zm5.11,0a.73.73,0,1,1,.73-.73A.74.74,0,0,1,13.65,14.43Z"/>
                         <circle class="circle view" cx="10.42" cy="10.42" r="9.92"/>
@@ -129,35 +129,41 @@
                 </div>
             </div>
             <div class="content__right-col">
-                <div class="profit-calc">
+                <div class="profit-calc" data-ng-controller="CalcCtrl">
                     <div class="profit-calc__header">
                         <h2 class="profit-calc__headline">Посчитайте прибыль</h2>
                         <p class="profit-calc__tagline"><span class="profit-calc__tagline profit-calc__tagline_indented">Добриво </span>эффективнее химии</p>
                     </div>
-                    <form action="" class="profit-calc__form options-form">
+                    <form novalidate name="profit_calc" class="profit-calc__form options-form" data-ng-submit="calculate(profit_calc.$valid)">
                         <div class="options-form__group">
-                            <label for="crop" class="options-form__label">Выберите культуру</label>
-                            <select class="options-form__select" id="crop">
-                                <option class="options-form__option" value="0">Пшеница ≈ 3100 грн / т</option>
-                                <option class="options-form__option" value="1">Ячмень ≈ 2700 грн / т</option>
+                            <label for="cost" class="options-form__label">Выберите культуру</label>
+                            <select required="required" class="options-form__select" id="cost" name="cost" data-ng-model="cost" data-ng-change="calculate(profit_calc.$valid)">
+                                <option class="options-form__option" value="3100" selected="selected">Пшеница ≈ 3100 грн / т</option>
+                                <option class="options-form__option" value="2700">Ячмень ≈ 2700 грн / т</option>
+                                <option class="options-form__option" value="4000">Кукурудза ≈ 4000 грн / т</option>
+                                <option class="options-form__option" value="2100">Овес ≈ 2100 грн / т</option>
                             </select>
+                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.cost.$error)}}</p>
                         </div>
                         <div class="options-form__group">
-                            <label for="" class="options-form__label">Урожайность, ц/га</label>
-                            <input type="text" class="options-form__input" placeholder="20">
+                            <label for="productivity" class="options-form__label">Урожайность, ц/га</label>
+                            <input required="required" type="text" id="capacity" name="capacity" class="options-form__input" placeholder="20" pattern="^[0-9]+$" data-ng-model="capacity" data-ng-change="calculate(profit_calc.$valid)">
+                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.capacity.$error)}}</p>
                         </div>
                         <div class="options-form__group">
-                            <label for="" class="options-form__label">Стоимость хим. удобрения, грн/га</label>
-                            <input type="text" class="options-form__input" placeholder="3000">
+                            <label for="price" class="options-form__label">Стоимость хим. удобрения, грн/га</label>
+                            <input required="required" type="text" id="price" name="price" class="options-form__input" placeholder="3000" pattern="^[0-9]+$" data-ng-model="price" data-ng-change="calculate(profit_calc.$valid)">
+                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.price.$error)}}</p>
                         </div>
                         <div class="options-form__group">
-                            <label for="" class="options-form__label">Посевная площадь, га</label>
-                            <input type="text" class="options-form__input" placeholder="10">
+                            <label for="area" class="options-form__label">Посевная площадь, га</label>
+                            <input required="required" type="text" id="area" name="area" class="options-form__input" placeholder="10" pattern="^[0-9]+$" data-ng-model="area" data-ng-change="calculate(profit_calc.$valid)">
+                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.area.$error)}}</p>
                         </div>
                     </form>
                     <div class="profit-calc__footer">
                         <p class="profit-calc__result-text">Прибыль от ДОБРИВА</p>
-                        <p class="profit-calc__result">50 000</p>
+                        <p class="profit-calc__result">{{result}}</p>
                         <p class="profit-calc__currency">грн</p>
                     </div>
                 </div>
@@ -165,8 +171,10 @@
         </div>
     </main>
 
+    <script src="./libs/js/angular.min.js"></script>
     <script src="./libs/js/jquery.min.js"></script>
     <script src="./libs/js/jquery.backstretch.min.js"></script>
+    <script src="./js/app.js"></script>
     <script src="./js/main.js"></script>
 
     <script>

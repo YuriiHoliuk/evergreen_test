@@ -1,0 +1,11 @@
+.ng-invalid-pattern.ng-dirty {
+    border-color: lightpink;
+}
+
+.ng-invalid-required.ng-dirty {
+    border-color: lightcoral;
+}
+
+.ng-valid.ng-dirty {
+    border-color: lightgreen;
+}
