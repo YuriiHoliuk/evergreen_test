@@ -20,13 +20,10 @@ function headerInit() {
 
     function rebuildHeader() {
         if (state !== getState()) {
-            if (getState() === 'desktop' && $('mobile-nav__toggle').hasClass('open')) {
-                toggleMobileNav();
-            }
+            hideMobileNav();
             clearHeader();
             buildHeader(getState());
             state = getState();
-            console.log(state);
         }
     }
 
@@ -48,7 +45,6 @@ function headerInit() {
             $('.mobile-nav__toggle').on('click', toggleMobileNav);
         }
         state = getState();
-        console.log(state);
     }
 
     function getState() {
@@ -72,17 +68,25 @@ function headerInit() {
 
     function toggleMobileNav() {
         if ($('.mobile-nav').hasClass('active')) {
-            $('.mobile-nav').toggleClass('active');
-            $('.mobile-nav__toggle').toggleClass('open');
-            setTimeout(function() {
-                $('.mobile-nav').hide();
-            }, 500);
+            hideMobileNav();
         } else if (!($('.mobile-nav').hasClass('active'))) {
-            $('.mobile-nav__toggle').toggleClass('open');
-            $('.mobile-nav').show(0, function() {
-                $('.mobile-nav').toggleClass('active');
-            });
+            showMobileNav();
         }
+    }
+
+    function hideMobileNav() {
+        $('.mobile-nav').removeClass('active');
+        $('.mobile-nav__toggle').removeClass('open');
+        setTimeout(function() {
+            $('.mobile-nav').hide();
+        }, 500);
+    }
+
+    function showMobileNav() {
+        $('.mobile-nav__toggle').addClass('open');
+        $('.mobile-nav').show(0, function() {
+            $('.mobile-nav').addClass('active');
+        });
     }
 }
 
