@@ -91,7 +91,7 @@ gulp.task('buildHtml', function() {
 })
 
 gulp.task('buildCss', ['css-min'], function() {
-    return gulp.src(['src/css/*.min.css', 'src/libs/css/*.css'])
+    return gulp.src(['src/css/*.css', 'src/libs/css/*.css'])
         .pipe(gulp.dest('docs/css'))
 })
 
@@ -101,7 +101,7 @@ gulp.task('buildFonts', function() {
 })
 
 gulp.task('buildJs', ['scripts'], function() {
-    return gulp.src(['src/js/*.min.js', 'src/libs/js/*.js'])
+    return gulp.src(['src/js/*.js', 'src/libs/js/*.js'])
         .pipe(gulp.dest('docs/js'))
 })
 
