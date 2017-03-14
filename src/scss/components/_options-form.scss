@@ -1,19 +1,27 @@
-.option-form {
+.options-form {
     color: $main-text-color;
-    &__input,
-    &__select {
+    &__input, &__select {
         font-weight: 300;
-        padding: 10px;
+
+        display: block;
+
         width: 100%;
+        padding: 1rem;
+
+        color: $main-text-color;
         border: none;
-        border: 2px solid $bd-color;
-        border-radius: 2px;
+        border: .2rem solid $bd-color;
+        border-radius: .2rem;
     }
     &__option {
         font-weight: 300;
+
         color: $main-text-color;
     }
     &__label {
         font-weight: 300;
+    }
+    &__group {
+        margin-bottom: 2rem;
     }
 }

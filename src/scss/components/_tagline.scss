@@ -1,29 +1,41 @@
 .tagline {
-    padding-bottom: 12px;
-    border-bottom: 1px solid transparent;
-    margin-left: 90px;
+    padding-bottom: 1.2rem;
+
+    border-bottom: .1rem solid transparent;
     &__text {
+        font-size: 5.5rem;
         font-weight: 700;
         font-stretch: condensed;
-        font-size: 6rem;
+
         color: #fff;
+
+        @include big-desktop-up {
+            margin-left: 9rem;
+        }
         @include tablet-landscape-down {
-            font-size: 6rem * 0.77;
+            font-size: 6rem * .77;
+        }
+        @include phone-only {
+            font-size: 6rem * .6;
         }
         & p:nth-child(2) {
-            text-indent: 112px;
+            text-indent: 11.2rem;
+
             @include tablet-landscape-down {
-                text-indent: 112px * 0.77;
+                text-indent: 11.2rem * .77;
             }
         }
         & p:nth-child(3) {
-            text-indent: 224px;
+            text-indent: 22.4rem;
+
             @include tablet-landscape-down {
-                text-indent: 224px * 0.77;
+                text-indent: 22.4rem * .77;
             }
         }
-    }
-    @include tablet-landscape-down {
-        margin-left: 45px;
+        & p:nth-child(n) {
+            @include phone-only {
+                text-indent: 0;
+            }
+        }
     }
 }

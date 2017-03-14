@@ -3,18 +3,17 @@
 @import './modules/extend';
 @import './modules/mixin';
 //components
-@import './components/reset';
-@import './components/document';
-@import './components/page';
-@import './components/wrapper';
+@import './components/base';
 @import './components/promo';
 @import './components/header';
 @import './components/header-top';
 @import './components/header-panel';
+@import './components/basket-btn';
 @import './components/logo';
 @import './components/short-nav';
 @import './components/lang-switch';
 @import './components/main-nav';
+@import './components/mobile-nav';
 @import './components/tagline';
 @import './components/content';
 @import './components/benefits';

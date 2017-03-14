@@ -1,16 +1,35 @@
 .short-nav {
-    list-style: none;
     padding: 0;
+
+    list-style: none;
+
+    @include tablet-portrait-down {
+        padding-bottom: 2rem;
+
+        border-bottom: 2px solid white;
+    }
     &__item {
         display: inline-block;
+
+        @include tablet-portrait-down {
+            display: block;
+
+            margin-bottom: 1.5rem;
+        }
         &:not(:last-child) {
-            padding-right: 44px;
+            padding-right: 4.4rem;
         }
     }
     &__link {
-        font-weight: 300;
         font-size: 1.1rem;
+        font-weight: 300;
+
         text-transform: uppercase;
+
         color: #fff;
+
+        @include tablet-portrait-down {
+            font-size: 2rem;
+        }
     }
 }

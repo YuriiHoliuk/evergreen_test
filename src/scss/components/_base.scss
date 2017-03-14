@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.document {
+    font-size: 10px / 16px * 100%;
+
+    @include big-desktop-up {
+        font-size: 10 / 1600 * 100vw;
+    }
+}
+
+.page {
+    font-family: $main-font;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+}
+
+.wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+
+    @include tablet-landscape-down {
+        max-width: 90%;
+    }
+    @include tablet-portrait-down {
+        max-width: 95%;
+    }
+}

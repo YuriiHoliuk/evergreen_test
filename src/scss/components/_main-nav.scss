@@ -1,26 +1,47 @@
 .main-nav {
+    padding: 1.7rem 0 .8rem 0;
+
     background-color: $bg-color;
-    padding: 17px 13px 8px 38px;
+
+    flex: 1 1;
+    @include tablet-portrait-down {
+        background: none;
+    }
     &__list {
-        list-style: none;
+        display: flex;
+
         padding: 0;
+
+        list-style: none;
+
+        justify-content: space-around;
+        @include tablet-portrait-down {
+            flex-direction: column;
+        }
     }
     &__item {
-        display: inline-block;
-        &:not(:last-child) {
-            padding-right: 2.8rem;
+        @include tablet-portrait-down {
+            margin-bottom: 1.5rem;
         }
         & span {
             font-size: .5em;
-            padding-left: 3px;
+
+            padding-left: .3rem;
         }
     }
     &__link {
-        font-stretch: condensed;
         font-weight: 700;
-        text-transform: uppercase;
-        color: #6D6E71;
+        font-stretch: condensed;
+
         display: flex;
+
+        text-transform: uppercase;
+
+        color: #6d6e71;
+
         align-items: center;
+        @include tablet-portrait-down {
+            font-size: 2rem;
+        }
     }
 }

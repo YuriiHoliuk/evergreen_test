@@ -1,19 +1,25 @@
 .benefits {
-    list-style: none;
+    margin-bottom: 5.5rem;
+    margin-left: 9rem;
     padding: 0;
-    padding-left: 135px;
-    margin-left: 90px;
-    margin-bottom: 55px;
-    // border: 1px solid #f00; 
+    padding-left: 13.5rem;
+
+    list-style: none;
+
     @include tablet-portrait-down {
-        padding-left: 0;
-        margin-left: 0;
         display: inline-block;
+
         margin: 0 auto;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    @include phone-only {
+        margin: 3rem auto;
     }
     &__bg {
         position: absolute;
-        top: -60px;
+        top: -6rem;
+
         @include tablet-portrait-down {
             display: none;
         }

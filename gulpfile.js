@@ -14,18 +14,23 @@ var gulp = require('gulp'),
     mqpacker = require("css-mqpacker"),
     rigger = require('gulp-rigger'),
     replace = require('gulp-string-replace'),
+    sourcemaps = require('gulp-sourcemaps'),
     htmlmin = require('gulp-htmlmin');
 
 
 gulp.task('sass', function() {
     setTimeout(function() {
         return gulp.src('src/scss/**/*.scss')
+            .pipe(sourcemaps.init())
             .pipe(sass())
+            .pipe(sourcemaps.write())
             .pipe(autoprefixer(['last 5 versions', '> 1%'], { cascade: true }))
             .pipe(postcss([mqpacker()]))
-            .pipe(gulp.dest('src/css'));
-    }, 100);
+            .pipe(gulp.dest('src/css'))
+            .pipe(browserSync.reload({ stream: true }));
+    }, 300);
 });
+
 
 // gulp.task('html', function() {
 //     gulp.src('src/parts/index.html')
@@ -45,23 +50,20 @@ gulp.task('browser-sync', function() {
 gulp.task('scripts', function() {
     return gulp.src(['src/js/*.js', '!src/js/*.min.js'])
         .pipe(concat('main.min.js'))
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(gulp.dest('src/js'));
 });
 
 gulp.task('css-min', ['sass'], function() {
-    setTimeout(function() {
-        return gulp.src(['src/css/*.css', '!src/css/*min.css'])
-            .pipe(cssnano())
-            .pipe(rename({ suffix: '.min' }))
-            .pipe(gulp.dest('src/css'))
-            .pipe(browserSync.reload({ stream: true }));
-    }, 200)
-
+    return gulp.src(['src/css/*.css', '!src/css/*min.css'])
+        .pipe(cssnano())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('src/css'))
+        .pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task('watch', ['browser-sync', 'css-min', 'scripts'], function() {
-    gulp.watch('src/scss/**/*.scss', ['css-min']);
+gulp.task('watch', ['browser-sync', 'sass', 'scripts'], function() {
+    gulp.watch('src/scss/**/*.scss', ['sass']);
     gulp.watch('src/*.html', [browserSync.reload]);
     gulp.watch('src/js/**/*.js', ['scripts', browserSync.reload]);
 });

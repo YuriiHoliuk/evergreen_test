@@ -1,0 +1,61 @@
+.basket-btn {
+    font-weight: 700;
+    font-stretch: condensed;
+
+    display: flex;
+
+    text-transform: uppercase;
+
+    color: #fff;
+    border: none;
+    background-image: linear-gradient(to top, rgb(117, 91, 30), rgb(82, 168, 40));
+
+    align-items: center;
+    justify-content: space-around;
+    flex: 0 1 13%;
+    @extend %pseudo;
+    @include tablet-landscape-down {
+        padding: 0;
+
+        flex: 0 1 75px;
+    }
+    @include tablet-portrait-down {
+        position: absolute;
+        top: 5%;
+        right: 7%;
+
+        padding: .5rem 1rem;
+    }
+    &:hover .basket-btn__icon .view {
+        opacity: 1;
+    }
+    &__text {
+        @include tablet-landscape-down {
+            display: none;
+        }
+        @include tablet-portrait-down {
+            display: inline-block;
+        }
+    }
+    &__icon {
+        width: 3.5rem;
+        height: 3.5rem;
+
+        @include tablet-portrait-down {
+            margin-right: .5rem;
+        }
+        & .view {
+            transition: opacity .5s;
+
+            opacity: .3;
+        }
+        & .cart {
+            fill: #fff;
+        }
+        & .circle {
+            fill: none;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+        }
+    }
+}

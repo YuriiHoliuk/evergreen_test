@@ -1,52 +1,68 @@
 .profit-calc {
-    max-width: 317px;
+    max-width: 31.7rem;
+    margin: 1.2rem;
+    margin-left: 8.2rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
+
+    transform: translateY(-17.0rem);
+
+    border: .2rem dotted $dotted-bg-color;
+    outline: 1.2rem solid $second-bg-color;
     background-image: url('../img/bg_tmpl.jpg');
     background-repeat: repeat;
-    border: 2px dotted $dotted-bg-color;
-    outline: 12px solid $second-bg-color;
-    margin: 12px;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-left: 82px / 1200px * 100vw;
-    transform: translateY(-170px);
+
     @include tablet-portrait-down {
-        margin-left: 12px;
+        margin: 1.2rem auto;
+
         transform: none;
-        max-width: none;
     }
     &__header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 2rem;
+
         text-align: center;
+
         @extend %pseudo;
         &::after {
             bottom: 0;
+
+            width: 17rem;
+
+            border-bottom: .2rem solid $bd-color;
+
             @extend %ham;
-            width: 170px;
-            border-bottom: 2px solid $bd-color;
         }
-        padding-bottom: 20px;
-        margin-bottom: 15px;
     }
     &__footer {
+        padding-top: 1rem;
+
         text-align: center;
+
         @extend %pseudo;
         &::after {
             top: 0;
+
+            width: 17rem;
+
+            border-bottom: .2rem solid $bd-color;
+
             @extend %ham;
-            width: 170px;
-            border-bottom: 2px solid $bd-color;
         }
-        padding-top: 10px;
     }
     &__headline {
+        font-size: 3.6rem;
         font-weight: 700;
         font-stretch: condensed;
-        font-size: 3.6rem;
+
         text-transform: uppercase;
+
         color: $main-text-color;
     }
     &__tagline {
-        letter-spacing: 0.15px;
+        letter-spacing: .015rem;
         text-transform: uppercase;
+
         color: $main-text-color;
         &_indented {
             font-weight: 700;
@@ -54,17 +70,22 @@
     }
     &__result {
         font-size: 4.7rem;
+
         text-transform: uppercase;
+
         color: $calc-indent-color;
     }
     &__result-text {
         font-weight: 300;
-        letter-spacing: 0.15px;
+
+        letter-spacing: .015rem;
         text-transform: uppercase;
+
         color: $calc-indent-color;
     }
     &__currency {
         font-weight: 300;
+
         color: $main-text-color;
     }
 }

@@ -1,57 +1,56 @@
 .content {
     position: relative;
+
+    background-color: $bg-color;
+    background-image: url('../img/wheat-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 48%;
+
     @extend %clearfix;
-    z-index: 2;
     @include tablet-portrait-down {
-        background-color: $bg-color;
-    }
-    &__bg {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        z-index: -1;
-        @extend %clearfix;
-        @include tablet-portrait-down {
-            display: none;
-        }
-        &_left {
-            float: left;
-            background-color: $bg-color;
-            width: 52%;
-            height: 100%;
-        }
-        &_right {
-            @extend %clearfix;
-            float: left;
-            width: 48%;
-            height: 100%;
-            background-image: url('../img/wheat-bg.jpg');
-            background-size: cover;
-        }
+        background: $bg-color;
     }
     &__left-col {
         float: left;
+
         width: 52%;
+        margin-bottom: 4rem;
+
         @extend %clearfix;
-        // border: 1px solid #0f0; 
         @include tablet-portrait-down {
+            display: flex;
             float: none;
-            // width: 100%;  
-            display: inline-block;
-            margin: 0 auto;
+
+            width: 100%;
+
+            justify-content: space-between;
+            align-items: center;
+        }
+        @include phone-only {
+            flex-direction: column;
         }
     }
     &__right-col {
-        float: left;
         position: relative;
-        border-top: 1px solid transparent;
+
+        float: left;
+
         width: 48%;
+
+        border-top: 1px solid transparent;
+
         @extend %clearfix;
         @include tablet-portrait-down {
             float: none;
+
             width: 100%;
+            padding-top: 7rem;
+            padding-bottom: 5rem;
+
+            background-image: url('../img/wheat-bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
     }
 }
