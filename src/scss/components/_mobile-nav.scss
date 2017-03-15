@@ -33,6 +33,8 @@
         opacity: 1;
     }
     &__icon {
+        display: block;
+
         width: 3rem;
         & .line {
             display: block;
