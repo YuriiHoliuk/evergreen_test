@@ -10,7 +10,7 @@ a:hover {
     font-size: 10px / 16px * 100%;
 
     @include big-desktop-up {
-        font-size: 10 / 1600 * 100vw;
+        font-size: 10px / 1600px * 100vw;
     }
 }
 

@@ -13,6 +13,14 @@
         border: .2rem solid $bd-color;
         border-radius: .2rem;
     }
+    &__select {
+        background-image: url('../img/crop__arrow.svg');
+        background-repeat: no-repeat;
+        background-position: 96% 50%;
+        background-size: .8rem 1rem;
+
+        appearance: none;
+    }
     &__option {
         font-weight: 300;
 

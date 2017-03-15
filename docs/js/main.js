@@ -5,9 +5,9 @@ $(function() {
 
 function bgInit() {
     $('.promo').backstretch([
-        "http://lorempixel.com/1366/488/nature",
-        "http://lorempixel.com/1366/488/technics",
-        "http://lorempixel.com/1366/488/sports",
+        "http://loremflickr.com/1366/488/combine?random=1",
+        "http://loremflickr.com/1366/488/combine?random=2",
+        "http://loremflickr.com/1366/488/combine?random=3",
         "../img/promo_bg.jpg"
     ], {
         duration: 5000,
