@@ -24,7 +24,7 @@ gulp.task('sass', function() {
             .pipe(sourcemaps.init())
             .pipe(sass())
             .pipe(sourcemaps.write())
-            .pipe(autoprefixer(['last 5 versions', '> 1%', 'ie >= 8'], { cascade: true }))
+            .pipe(autoprefixer(['last 5 versions', '> 1%'], { cascade: true }))
             .pipe(postcss([mqpacker()]))
             .pipe(gulp.dest('src/css'))
             .pipe(browserSync.reload({ stream: true }));

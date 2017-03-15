@@ -11,6 +11,7 @@
         display: flex;
 
         padding: 0;
+        padding-bottom: .8rem;
 
         list-style: none;
 
@@ -37,11 +38,14 @@
 
         text-transform: uppercase;
 
-        color: #6d6e71;
+        color: $nav-text-color;
 
         align-items: center;
         @include tablet-portrait-down {
             font-size: 2rem;
+        }
+        &:hover {
+            color: $nav-text-color + #005;
         }
     }
 }

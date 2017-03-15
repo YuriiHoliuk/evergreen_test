@@ -47,13 +47,17 @@ function headerInit() {
     }
 
     function buildHeader(state) {
+        var h,
+            m;
         if (state === 'desktop') {
             $top.append($logo).append($short).append($lang);
-            $('.header').append($top).append($panel);
+            h = $top.add($panel);
+            $('.header').append(h);
         } else if (state === 'mobile') {
             $top.append($logo).append($toggle);
             $('.header').append($top);
-            $('.mobile-nav').append($lang).append($short).append($panel);
+            m = $lang.add($short).add($panel);
+            $('.mobile-nav').append(m);
 
             $('.mobile-nav__toggle').on('click', toggleMobileNav);
         }

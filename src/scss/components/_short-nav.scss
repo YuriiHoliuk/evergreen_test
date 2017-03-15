@@ -31,5 +31,8 @@
         @include tablet-portrait-down {
             font-size: 2rem;
         }
+        &:hover {
+            color: darken(#7676f9, .8);
+        }
     }
 }

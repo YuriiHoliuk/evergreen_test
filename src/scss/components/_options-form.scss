@@ -28,6 +28,10 @@
     }
     &__label {
         font-weight: 300;
+
+        display: inline-block;
+
+        margin-bottom: .3rem;
     }
     &__group {
         margin-bottom: 2rem;
