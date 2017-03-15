@@ -24,4 +24,18 @@
     &__group {
         margin-bottom: 2rem;
     }
+    &__error {
+        visibility: hidden;
+
+        min-height: .3rem;
+        max-height: .3rem;
+        margin-top: .7rem;
+
+        transition: display .5s;
+
+        color: lightcoral;
+        &.visible {
+            visibility: visible;
+        }
+    }
 }

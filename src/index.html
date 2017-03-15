@@ -17,6 +17,7 @@
 
         <header class="header wrapper">
 
+
             <div class="header-top">
 
                 <h1 class="logo">Добриво</h1>
@@ -134,7 +135,7 @@
                         <h2 class="profit-calc__headline">Посчитайте прибыль</h2>
                         <p class="profit-calc__tagline"><span class="profit-calc__tagline profit-calc__tagline_indented">Добриво </span>эффективнее химии</p>
                     </div>
-                    <form novalidate name="profit_calc" class="profit-calc__form options-form" data-ng-submit="calculate(profit_calc.$valid)">
+                    <form novalidate id="profit_calc" name="profit_calc" class="profit-calc__form options-form">
                         <div class="options-form__group">
                             <label for="cost" class="options-form__label">Выберите культуру</label>
                             <select required="required" class="options-form__select" id="cost" name="cost" data-ng-model="cost" data-ng-change="calculate(profit_calc.$valid)">
@@ -143,22 +144,22 @@
                                 <option class="options-form__option" value="4000">Кукурудза ≈ 4000 грн / т</option>
                                 <option class="options-form__option" value="2100">Овес ≈ 2100 грн / т</option>
                             </select>
-                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.cost.$error)}}</p>
+                            <p data-ng-class="{visible: (showError && profit_calc.cost.$dirty)}" class="options-form__error">{{getError(profit_calc.cost.$error)}}</p>
                         </div>
                         <div class="options-form__group">
                             <label for="productivity" class="options-form__label">Урожайность, ц/га</label>
                             <input required="required" type="text" id="capacity" name="capacity" class="options-form__input" placeholder="20" pattern="^[0-9]+$" data-ng-model="capacity" data-ng-change="calculate(profit_calc.$valid)">
-                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.capacity.$error)}}</p>
+                            <p data-ng-class="{visible: (showError && profit_calc.capacity.$dirty)}" class="options-form__error">{{getError(profit_calc.capacity.$error)}}</p>
                         </div>
                         <div class="options-form__group">
                             <label for="price" class="options-form__label">Стоимость хим. удобрения, грн/га</label>
                             <input required="required" type="text" id="price" name="price" class="options-form__input" placeholder="3000" pattern="^[0-9]+$" data-ng-model="price" data-ng-change="calculate(profit_calc.$valid)">
-                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.price.$error)}}</p>
+                            <p data-ng-class="{visible: (showError && profit_calc.price.$dirty)}" class="options-form__error">{{getError(profit_calc.price.$error)}}</p>
                         </div>
                         <div class="options-form__group">
                             <label for="area" class="options-form__label">Посевная площадь, га</label>
                             <input required="required" type="text" id="area" name="area" class="options-form__input" placeholder="10" pattern="^[0-9]+$" data-ng-model="area" data-ng-change="calculate(profit_calc.$valid)">
-                            <p data-ng-show="showError" class="options-form__error">{{getError(profit-calc.area.$error)}}</p>
+                            <p data-ng-class="{visible: (showError && profit_calc.area.$dirty)}" class="options-form__error">{{getError(profit_calc.area.$error)}}</p>
                         </div>
                     </form>
                     <div class="profit-calc__footer">
@@ -171,9 +172,10 @@
         </div>
     </main>
 
+
     <script src="./libs/js/angular.min.js"></script>
     <script src="./libs/js/jquery.min.js"></script>
-    <script src="./libs/js/jquery.backstretch.min.js"></script>
+    <script src="./libs/js/jquery.backstretch.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/main.js"></script>
 

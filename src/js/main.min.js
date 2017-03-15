@@ -5,10 +5,12 @@ evergreen.controller('CalcCtrl', function($scope) {
     $scope.showError = false;
 
     $scope.calculate = function(isValid) {
-        if ($scope.profit_calc.cost.$valid && $scope.profit_calc.price.$valid && $scope.profit_calc.area.$valid && $scope.profit_calc.capacity.$valid) {
+        // $scope.profit_calc.cost.$valid && $scope.profit_calc.price.$valid && $scope.profit_calc.area.$valid && $scope.profit_calc.capacity.$valid
+        if (isValid) {
             $scope.result = calc();
         } else {
             $scope.result = 0;
+            $scope.showError = true;
         }
     }
 
@@ -26,7 +28,7 @@ evergreen.controller('CalcCtrl', function($scope) {
 
     $scope.getError = function(error) {
         if (error.required) {
-            return 'Все поля должни бить заполнени';
+            return 'Все поля должны быть заполнены';
         } else if (error.pattern) {
             return 'Введите пожалуйста число'
         };

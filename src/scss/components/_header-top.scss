@@ -5,4 +5,7 @@
 
     align-items: center;
     justify-content: space-between;
+    @include tablet-portrait-down {
+        margin-bottom: 5rem;
+    }
 }
