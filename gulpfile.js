@@ -49,7 +49,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('scripts', function() {
     return gulp.src(['src/js/*.js', '!src/js/*.min.js'])
-        .pipe(concat('main.min.js'))
+        // .pipe(concat('main.min.js'))
         // .pipe(uglify())
         .pipe(gulp.dest('src/js'));
 });
@@ -58,8 +58,7 @@ gulp.task('css-min', ['sass'], function() {
     return gulp.src(['src/css/*.css', '!src/css/*min.css'])
         .pipe(cssnano())
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('src/css'))
-        .pipe(browserSync.reload({ stream: true }));
+        .pipe(gulp.dest('src/css'));
 });
 
 gulp.task('watch', ['browser-sync', 'sass', 'scripts'], function() {
@@ -77,7 +76,7 @@ gulp.task('buildImg', function() {
         .pipe(imagemin({
             interlaced: true,
             progressive: true,
-            svgoPlugins: [{ removeViewBox: true }],
+            svgoPlugins: [{ removeViewBox: false }],
             use: [pngquant()]
         }))
         .pipe(gulp.dest('docs/img'));
@@ -86,11 +85,11 @@ gulp.task('buildImg', function() {
 gulp.task('buildHtml', function() {
     return gulp.src('src/*.html')
         .pipe(replace('libs/', ''))
-        .pipe(htmlmin({ collapseWhitespace: true }))
+        // .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('docs'));
 })
 
-gulp.task('buildCss', ['css-min'], function() {
+gulp.task('buildCss', ['sass'], function() {
     return gulp.src(['src/css/*.css', 'src/libs/css/*.css'])
         .pipe(gulp.dest('docs/css'))
 })
